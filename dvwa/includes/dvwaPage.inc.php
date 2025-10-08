@@ -407,7 +407,7 @@ function dvwaHtmlEcho( $pPage ) {
 
 			<div id=\"header\">
 
-				<img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/logo.png\" alt=\"Damn Vulnerable Web Application\" />
+				<h1 style=\"color: white; margin: 0; padding: 10px 0; font-size: 24px; font-weight: bold;\">LexSecure Law Firms</h1>
                 <a href=\"#\" onclick=\"javascript:toggleTheme();\" class=\"theme-icon\" title=\"Toggle theme between light and dark.\">
                     <img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/theme-light-dark.png\" alt=\"Damn Vulnerable Web Application\" />
                 </a>

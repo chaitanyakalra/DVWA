@@ -1,0 +1,52 @@
+DVWA CHANGE STEPS GUIDE
+========================
+
+Whenever you modify DVWA files (frontend, config, etc.), follow these steps:
+
+1. CHECK CURRENT STATUS
+   - Open PowerShell in DVWA folder: C:\Users\chiat\Documents\GitHub\DVWA
+   - Check if containers are running:
+     docker compose ps
+
+2. IF CONTAINERS ARE RUNNING
+   - Restart DVWA container to pick up changes:
+     docker compose restart dvwa
+   - Wait 10 seconds for container to fully start
+
+3. IF CONTAINERS ARE NOT RUNNING
+   - Start the full stack:
+     docker compose up -d
+   - Wait 30 seconds for both containers to start
+
+4. VERIFY CHANGES
+   - Open browser: http://127.0.0.1:4280
+   - Hard refresh: Ctrl+F5 (to clear cache)
+   - Check if your changes are visible
+
+5. IF CHANGES STILL NOT VISIBLE
+   - Force recreate containers:
+     docker compose up -d --force-recreate
+   - Wait 1 minute for full restart
+   - Refresh browser again
+
+6. TROUBLESHOOTING
+   - Check container logs:
+     docker compose logs dvwa
+   - Check if bind-mount is enabled in compose.yml:
+     Look for: volumes: - ./:/var/www/html
+   - If bind-mount missing, uncomment those lines in compose.yml
+
+7. COMMON ISSUES
+   - Config error: Ensure config/config.inc.php exists (copy from .dist)
+   - Login issues: Clear browser cookies for 127.0.0.1:4280
+   - Docker not found: Open new PowerShell window
+
+8. QUICK COMMANDS REFERENCE
+   docker compose ps                    # Check status
+   docker compose restart dvwa          # Restart DVWA only
+   docker compose up -d                 # Start all services
+   docker compose down                  # Stop all services
+   docker compose logs -f               # View live logs
+
+LAST UPDATED: [Current Date]
+BIND-MOUNT STATUS: ENABLED (volumes: - ./:/var/www/html)
